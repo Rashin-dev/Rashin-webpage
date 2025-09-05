@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rashin Rahman V | Personal Web Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal web page of Rashin Rahman V. Includes address, hobbies, contact details, and email with an elegant, dark-themed, and responsive vertical layout with Apple-style floating effects.">
+    <meta name="author" content="Rashin Rahman V">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <style>
+        @font-face {
+            font-family: 'SF Pro Display';
+            font-style: normal;
+            font-weight: 400;
+            src: local('SF Pro Display'), local('San Francisco'), local('BlinkMacSystemFont');
+        }
+        :root {
+            --main-bg: #000;
+            --container-bg: rgba(18, 18, 18, 0.96);
+            --primary: #fafafc;
+            --secondary: #2997ff;
+            --highlight: #0e0e0e;
+            --shadow: 0 6px 36px 0 rgba(60, 60, 67, 0.25), 0 2px 8px rgba(60,60,67,0.22);
+            --radius: 40px;
+            --cube-size: 72px;
+            --text-glow: 0 1px 12px #2997ff44;
+        }
+        html {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+        body {
+            background: var(--main-bg);
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'SF Pro Display', 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+            color: var(--primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 1.6;
+            background-size: 200% 200%;
+            overflow-x: hidden;
+        }
+        main {
+            width: 100%;
+        }
+        .container {
+            background: var(--container-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 3rem 2.2rem 2.5rem 2.2rem;
+            max-width: 460px;
+            margin: 2rem auto;
+            width: 96vw;
+            position: relative;
+            perspective: 1200px;
+            transition: box-shadow 0.3s, transform 0.32s cubic-bezier(.19,1,.22,1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            border: 1.5px solid #181818;
+            backdrop-filter: blur(18px);
+            z-index: 2;
+            /* Floating effect */
+            animation: floatCard 7s ease-in-out infinite;
+        }
+        @keyframes floatCard {
+            0% { transform: translateY(0) scale(1);}
+            50% { transform: translateY(-16px) scale(1.025);}
+            100% { transform: translateY(0) scale(1);}
+        }
+        .container:hover {
+            box-shadow: 0 16px 56px 9px #222c, 0 8px 32px #222a;
+            transform: scale(1.025) translateY(-8px);
+        }
+        h1 {
+            font-family: 'SF Pro Display', 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+            font-size: 2.4em;
+            margin-bottom: 0.35em;
+            color: var(--primary);
+            letter-spacing: -1.5px;
+            text-align: center;
+            font-weight: 700;
+            text-shadow: var(--text-glow);
+            line-height: 1.13;
+            background: linear-gradient(90deg, #fafafc 60%, #2997ff 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: titleFade 1.5s, floatTitle 5s ease-in-out infinite;
+        }
+        @keyframes titleFade {
+            from { opacity: 0; transform: translateY(-40px);}
+            to   { opacity: 1; transform: translateY(0);}
+        }
+        @keyframes floatTitle {
+            0% { transform: translateY(0);}
+            50% { transform: translateY(-7px);}
+            100% { transform: translateY(0);}
+        }
+        .subtitle {
+            font-family: 'SF Pro Display', 'Segoe UI', 'Roboto', sans-serif;
+            font-size: 1.13em;
+            color: #aaa;
+            margin-bottom: 1.7em;
+            text-align: center;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-shadow: 0 1px 6px #2997ff22;
+            animation: floatSubtitle 6s ease-in-out infinite;
+        }
+        @keyframes floatSubtitle {
+            0% { transform: translateY(0);}
+            50% { transform: translateY(6px);}
+            100% { transform: translateY(0);}
+        }
+        .info, .contact {
+            margin: 1.25em 0 0.6em 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        .label {
+            font-family: 'SF Pro Display', 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: #2997ff;
+            margin-bottom: 0.12em;
+            font-size: 1.12em;
+            letter-spacing: 0.2px;
+            text-align: center;
+        }
+        .value {
+            text-align: center;
+            margin-bottom: 0.7em;
+            font-size: 1.13em;
+            color: var(--primary);
+            background: #19191b;
+            border-radius: 11px;
+            padding: 0.27em 0.9em;
+            font-weight: 500;
+            box-shadow: 0 0 4px 0 #2997ff22;
+        }
+        .hobbies {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1em 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 13px;
+            width: 100%;
+        }
+        .hobbies li {
+            background: linear-gradient(90deg, #18191b 10%, #22242a 90%);
+            padding: 11px 0;
+            border-radius: 16px;
+            box-shadow: 0 2px 10px 0 #2997ff22;
+            font-weight: 600;
+            color: #fafafc;
+            font-size: 1.1em;
+            width: 80%;
+            text-align: center;
+            transition: background 0.36s, transform 0.18s, color 0.18s, box-shadow 0.18s;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            border: 1px solid #18191b;
+            animation: floatHobby 8s ease-in-out infinite;
+        }
+        .hobbies li:nth-child(2) { animation-delay: 1s;}
+        .hobbies li:nth-child(3) { animation-delay: 2s;}
+        .hobbies li:nth-child(4) { animation-delay: 3s;}
+        @keyframes floatHobby {
+            0% { transform: translateY(0);}
+            20% { transform: translateY(-4px) scale(1.03);}
+            50% { transform: translateY(4px) scale(0.97);}
+            100% { transform: translateY(0);}
+        }
+        .hobbies li:hover, .hobbies li:focus {
+            background: linear-gradient(90deg, #2997ff 0%, #19191b 100%);
+            color: #fff;
+            transform: scale(1.07) translateY(-2px);
+            box-shadow: 0 0 26px 9px #2997ff55;
+        }
+        .contact a {
+            color: #2997ff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s, text-shadow 0.2s;
+            word-break: break-all;
+            text-shadow: 0 1px 5px #2997ff22;
+            font-size: 1.14em;
+            letter-spacing: 0.1px;
+        }
+        .contact a:hover, .contact a:focus {
+            color: #fafafc;
+            text-decoration: underline;
+            text-shadow: 0 2px 15px #2997ff;
+        }
+        a:focus {
+            outline: 2px solid #2997ff;
+            outline-offset: 2px;
+        }
+        .cube {
+            position: absolute;
+            top: -53px;
+            right: -53px;
+            width: var(--cube-size);
+            height: var(--cube-size);
+            transform-style: preserve-3d;
+            animation: spin 7s infinite linear, floatCube 6s ease-in-out infinite;
+            z-index: 2;
+            filter: blur(1px) drop-shadow(0 0 8px #2997ff44);
+            opacity: 0.82;
+        }
+        @keyframes floatCube {
+            0% { transform: translateY(0) rotateX(0) rotateY(0);}
+            50% { transform: translateY(-10px) rotateX(10deg) rotateY(10deg);}
+            100% { transform: translateY(0) rotateX(0) rotateY(0);}
+        }
+        .cube-face {
+            position: absolute;
+            width: var(--cube-size);
+            height: var(--cube-size);
+            background: linear-gradient(135deg, #18191b 45%, #2997ff 100%);
+            opacity: 0.97;
+            border: 1.5px solid #2997ff55;
+            border-radius: 19px;
+            box-shadow: 0 0 24px #2997ff33;
+            backdrop-filter: blur(7px) brightness(1.09);
+        }
+        .cube-face.front  { transform: translateZ(calc(var(--cube-size) / 2));}
+        .cube-face.back   { transform: rotateY(180deg) translateZ(calc(var(--cube-size) / 2));}
+        .cube-face.right  { transform: rotateY(90deg) translateZ(calc(var(--cube-size) / 2));}
+        .cube-face.left   { transform: rotateY(-90deg) translateZ(calc(var(--cube-size) / 2));}
+        .cube-face.top    { transform: rotateX(90deg) translateZ(calc(var(--cube-size) / 2));}
+        .cube-face.bottom { transform: rotateX(-90deg) translateZ(calc(var(--cube-size) / 2));}
+        @keyframes spin {
+            from { transform: rotateX(0) rotateY(0);}
+            to   { transform: rotateX(360deg) rotateY(360deg);}
+        }
+        .dot {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(18px);
+            opacity: 0.18;
+            z-index: 0;
+            animation: dotMove 11s infinite alternate;
+        }
+        .dot.dot1 {
+            width: 120px; height: 120px;
+            background: #2997ff;
+            top: -30px; left: -35px;
+            animation-delay: 0s;
+        }
+        .dot.dot2 {
+            width: 98px; height: 98px;
+            background: #191b20;
+            bottom: 20px; right: -30px;
+            animation-delay: 1.8s;
+        }
+        .dot.dot3 {
+            width: 65px; height: 65px;
+            background: #222;
+            top: 76%; left: -40px;
+            animation-delay: 2.2s;
+        }
+        @keyframes dotMove {
+            0% { transform: translateY(0) scale(1);}
+            100% { transform: translateY(16px) scale(1.09);}
+        }
+        .floating-orb {
+            position: absolute;
+            z-index: 1;
+            border-radius: 50%;
+            opacity: 0.25;
+            filter: blur(22px);
+            pointer-events: none;
+            animation: orbFloat 12s ease-in-out infinite alternate;
+            background: radial-gradient(circle at 40% 30%, #2997ff 0%, #19191b 85%, transparent 100%);
+        }
+        .floating-orb.orb1 {
+            width: 120px; height: 120px;
+            left: -60px; top: 60px;
+            animation-delay: 0s;
+        }
+        .floating-orb.orb2 {
+            width: 90px; height: 90px;
+            right: -40px; top: 300px;
+            animation-delay: 3s;
+        }
+        .floating-orb.orb3 {
+            width: 70px; height: 70px;
+            left: 50%; bottom: -40px;
+            transform: translateX(-50%);
+            animation-delay: 5s;
+        }
+        @keyframes orbFloat {
+            0% { transform: scale(1) translateY(0);}
+            40% { transform: scale(1.1) translateY(-14px);}
+            80% { transform: scale(0.98) translateY(6px);}
+            100% { transform: scale(1) translateY(0);}
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 1.2rem 0.4rem;
+                max-width: 99vw;
+                border-radius: 16px;
+            }
+            h1 {
+                font-size: 1.15em;
+            }
+            .cube {
+                top: -29px;
+                right: -29px;
+                width: 38px;
+                height: 38px;
+            }
+            .cube-face {
+                width: 38px;
+                height: 38px;
+            }
+            .dot.dot1 { width: 62px; height: 62px;}
+            .dot.dot2 { width: 48px; height: 48px;}
+            .dot.dot3 { width: 33px; height: 33px;}
+            .hobbies li { font-size: 1em; width: 96%; }
+            .floating-orb.orb1 { width: 60px; height: 60px; left: -30px; top: 30px; }
+            .floating-orb.orb2 { width: 45px; height: 45px; right: -20px; top: 160px; }
+            .floating-orb.orb3 { width: 35px; height: 35px; left: 50%; bottom: -20px; }
+        }
+    </style>
+</head>
+<body>
+    <main>
+    <div class="container" itemscope itemtype="https://schema.org/Person">
+        <!-- Apple-style floating orbs -->
+        <span class="floating-orb orb1"></span>
+        <span class="floating-orb orb2"></span>
+        <span class="floating-orb orb3"></span>
+        <!-- Decorative background blurred dots -->
+        <span class="dot dot1"></span>
+        <span class="dot dot2"></span>
+        <span class="dot dot3"></span>
+        <!-- 3D glass cube -->
+        <div class="cube" aria-hidden="true">
+            <div class="cube-face front"></div>
+            <div class="cube-face back"></div>
+            <div class="cube-face right"></div>
+            <div class="cube-face left"></div>
+            <div class="cube-face top"></div>
+            <div class="cube-face bottom"></div>
+        </div>
+        <h1 itemprop="name">Rashin Rahman V</h1>
+        <div class="subtitle">Welcome to my personal webpage.</div>
+        <div class="info">
+            <span class="label">Address</span>
+            <span class="value" itemprop="address">123 Harmony Avenue, Dream City, Wonderland 456789</span>
+        </div>
+        <div class="info">
+            <span class="label">Hobbies</span>
+            <ul class="hobbies" aria-label="Hobbies">
+                <li title="Travelling">Travelling</li>
+                <li title="Gaming">Gaming</li>
+                <li title="Football and Music">Football and Music</li>
+                <li title="Cooking">Cooking</li>
+            </ul>
+        </div>
+        <div class="contact" id="contact">
+            <span class="label">Contact</span>
+            <span class="value" itemprop="telephone">+91 98765 43210</span>
+            <span class="label" style="margin-top:1em;">Email</span>
+            <a href="mailto:randomuser1234@mailinator.com" itemprop="email">randomuser1234@mailinator.com</a>
+        </div>
+    </div>
+    </main>
+</body>
+</html>
